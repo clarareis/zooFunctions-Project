@@ -3,11 +3,8 @@ const data = require('../data/zoo_data');
 function getAnimalsOlderThan(animal, age) {
 
 }
-console.log(data.species.find((element) => {
-if (element.name === element) {
+// como que eu vejo todos os animais? for = map/each
 
-};
-}));
 module.exports = getAnimalsOlderThan;
 /* // Ao receber uma espécie e uma idade como parâmetro, retorne se todos os animais dessa espécie possuem essa idade ou são mais velhos.
 1 - Pegar o animal passado (pegar a idade dele residents.age) e comparar com os outros animais da espécie para verificar se a idade é = ou >
