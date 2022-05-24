@@ -1,6 +1,6 @@
 const data = require('../data/zoo_data');
 
-// como faço para somar todos os animais?
+// como faço para somar todos os animais?.
 
 function countAnimals(parameter) {
 //   const residentes = data.species;
