@@ -1,13 +1,12 @@
 const data = require('../data/zoo_data');
 
 function isManager(id) {
-  return data.employees.filter((element) => element.managers)
-    .find((manager) => manager === id);
+  return data.employees.some((element) => element.managers.includes(id));
 }
 
 function getRelatedEmployees(managerId) {
   // seu código aqui
 }
-console.log(isManager('b0dc644a-5335-489b-8a2c-4e086c7819a2'));
+console.log(isManager('0e7b460e-acf4-4e17-bcb3-ee472265db83'));
 
 module.exports = { isManager, getRelatedEmployees };
