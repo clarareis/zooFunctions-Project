@@ -24,25 +24,15 @@ function calculateEntry(entrants) {
   return (valueTicket.child * valueKids)
   + (valueTicket.adult * valueAdult)
   + (valueTicket.senior * valueSenior);
-
-  /* Object.entries(countEntrants(entrants)).reduce((acc, curr) => {
-    if (curr[0] === 'child') {
-      return curr[1] * valueKids;
-    }
-    return acc;
-  }, 0); */
 }
-const entrants1 = [
+/* const entrants1 = [
   { name: 'Lara Carvalho', age: 5 },
   { name: 'Frederico Moreira', age: 5 },
   { name: 'Pedro Henrique Carvalho', age: 5 },
   { name: 'Maria Costa', age: 18 },
   { name: 'Núbia Souza', age: 18 },
   { name: 'Carlos Nogueira', age: 50 },
-];
-/* console.log(Object.entries(countEntrants(entrants1)).reduce((acc, curr) => {
-  if (curr[0] === 'child') { return curr * valueKids }
-})); */
+]; */
 
 // const entrants2 = [{ name: 'Lara Carvalho', age: 5 }];
 // const entrants3 = [{ name: 'Núbia Souza', age: 18 }];
@@ -50,6 +40,6 @@ const entrants1 = [
 
 // console.log(countEntrants(entrants1));
 
-console.log(calculateEntry(entrants1));
+// console.log(calculateEntry(entrants1));
 
 module.exports = { calculateEntry, countEntrants };
