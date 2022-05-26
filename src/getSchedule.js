@@ -1,40 +1,35 @@
 const { species, hours } = require('../data/zoo_data');
 
-const { Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday, Monday } = hours;
+const dias = Object.keys(hours);
+const horarios = Object.values(hours);
+// const { Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday, Monday } = hours;
+// const animaisDeTerca = species.filter((especie) => especie.availability
+//   .includes('Tuesday'))
+//  .map((names) => names.name);
 
-const programation = {
-  Tuesday: {
-    officeHour: `Open from ${Tuesday.open}am until ${Tuesday.close}pm`,
-  },
-  Wednesday: {
-    officeHour: `Open from ${Wednesday.open}am until ${Wednesday.close}pm`,
-  },
-  Thursday: {
-    officeHour: `Open from ${Thursday.open}am until ${Thursday.close}pm`,
-  },
-  Friday: {
-    officeHour: `Open from ${Friday.open}am until ${Friday.close}pm`,
-  },
-  Saturday: {
-    officeHour: `Open from ${Saturday.open}am until ${Saturday.close}pm`,
-  },
-  Sunday: {
-    officeHour: `Open from ${Sunday.open}am until ${Sunday.close}pm`,
-  },
-  Monday: {
-    officeHour: `Open from ${Monday.open}am until ${Monday.close}pm`,
-  },
-};
+const schedule = {};
+dias.forEach((dia, index) => {
+  schedule[dia] = {
+    officeHour: dia === 'Monday'
+      ? 'CLOSED' : `Open from ${horarios[index].open}am until ${horarios[index].close}pm`,
+    exhibition: dia === 'Monday'
+      ? 'The zoo will be closed!' : species.filter((especie) => especie.availability
+        .includes(dia)).map((nameAnimal) => nameAnimal.name),
+  };
+});
+// console.log(schedule);
 
 function getSchedule(scheduleTarget) {
   if (scheduleTarget === undefined) {
-    return programation;
+    return schedule;
   }
   return species.find((animal) => animal.name === scheduleTarget).availability;
 }
 console.log(getSchedule());
 
 module.exports = getSchedule;
+
+// 3 ifs
 
 // sem parâmetros, retorna os horários para cada dia e quais animais estarão disponíveis
 
