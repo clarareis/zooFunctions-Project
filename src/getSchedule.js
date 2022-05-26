@@ -1,11 +1,49 @@
-const { species } = require('../data/zoo_data');
+const { species, hours } = require('../data/zoo_data');
+
+const { Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday, Monday } = hours;
+
+const programation = {
+  Tuesday: {
+    officeHour: `Open from ${Tuesday.open}am until ${Tuesday.close}pm`,
+  },
+  Wednesday: {
+    officeHour: `Open from ${Wednesday.open}am until ${Wednesday.close}pm`,
+  },
+  Thursday: {
+    officeHour: `Open from ${Thursday.open}am until ${Thursday.close}pm`,
+  },
+  Friday: {
+    officeHour: `Open from ${Friday.open}am until ${Friday.close}pm`,
+  },
+  Saturday: {
+    officeHour: `Open from ${Saturday.open}am until ${Saturday.close}pm`,
+  },
+  Sunday: {
+    officeHour: `Open from ${Sunday.open}am until ${Sunday.close}pm`,
+  },
+  Monday: {
+    officeHour: `Open from ${Monday.open}am until ${Monday.close}pm`,
+  },
+};
 
 function getSchedule(scheduleTarget) {
-  if (scheduleTarget === species.name) {
-    species.map((element) => element.availability);
+  if (scheduleTarget === undefined) {
+    return programation;
   }
-  return scheduleTarget;
+  return species.find((animal) => animal.name === scheduleTarget).availability;
 }
+console.log(getSchedule());
 
-console.log(getSchedule('lions'));
-// Retorne um array com os dias da semana em que um animal está disponível para visitação caso o parâmetro da função seja um animal. Por exemplo: [ 'Tuesday', 'Thursday', 'Saturday', 'Sunday' ];
+module.exports = getSchedule;
+
+// sem parâmetros, retorna os horários para cada dia e quais animais estarão disponíveis
+
+/* {
+  'Tuesday': {
+    'officeHour': 'Open from 8am until 6pm',
+    'exhibition': [ 'lions', 'tigers', 'bears', 'penguins', 'elephants', 'giraffes' ],
+  },
+  'Wednesday': {
+    'officeHour': 'Open from 8am until 6pm',
+    'exhibition': [ 'tigers', 'bears', 'penguins', 'otters', 'frogs', 'giraffes' ],
+  }, */
