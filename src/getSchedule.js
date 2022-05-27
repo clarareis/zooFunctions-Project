@@ -2,10 +2,6 @@ const { species, hours } = require('../data/zoo_data');
 
 const dias = Object.keys(hours);
 const horarios = Object.values(hours);
-// const { Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday, Monday } = hours;
-// const animaisDeTerca = species.filter((especie) => especie.availability
-//   .includes('Tuesday'))
-//  .map((names) => names.name);
 
 const schedule = {};
 dias.forEach((dia, index) => {
@@ -17,28 +13,24 @@ dias.forEach((dia, index) => {
         .includes(dia)).map((nameAnimal) => nameAnimal.name),
   };
 });
-// console.log(schedule);
 
 function getSchedule(scheduleTarget) {
-  if (scheduleTarget === undefined) {
+  const getAnimal = species.find((animal) => animal.name === scheduleTarget);
+  if (getAnimal) {
+    return getAnimal.availability;
+  }
+  if (scheduleTarget === undefined || species.find((animal) => animal.name) !== scheduleTarget) {
     return schedule;
   }
-  return species.find((animal) => animal.name === scheduleTarget).availability;
 }
-console.log(getSchedule());
+
+console.log(getSchedule('penguins'));
 
 module.exports = getSchedule;
 
+// DICAS:
 // 3 ifs
+// if (scheduleTarget === undefined || (schedule condição  && schedule condição ))
 
-// sem parâmetros, retorna os horários para cada dia e quais animais estarão disponíveis
-
-/* {
-  'Tuesday': {
-    'officeHour': 'Open from 8am until 6pm',
-    'exhibition': [ 'lions', 'tigers', 'bears', 'penguins', 'elephants', 'giraffes' ],
-  },
-  'Wednesday': {
-    'officeHour': 'Open from 8am until 6pm',
-    'exhibition': [ 'tigers', 'bears', 'penguins', 'otters', 'frogs', 'giraffes' ],
-  }, */
+// caso os parâmetros não seja um animal e dia, retorna um objeto com os horários do dia e os animais em exibição
+// getSchedule('qualquercoisa')
