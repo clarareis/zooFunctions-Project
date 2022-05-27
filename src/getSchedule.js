@@ -19,18 +19,17 @@ function getSchedule(scheduleTarget) {
   if (getAnimal) {
     return getAnimal.availability;
   }
-  if (scheduleTarget === undefined || species.find((animal) => animal.name) !== scheduleTarget) {
-    return schedule;
+  if (Object.prototype.hasOwnProperty.call(schedule, scheduleTarget)) {
+    return { [scheduleTarget]: schedule[scheduleTarget] };
   }
+  return schedule;
 }
 
-console.log(getSchedule('penguins'));
+/*  Referência: Object.prototype.hasOwnProperty.call -> https://stackoverflow.com/questions/39282873/object-hasownproperty-yields-the-eslint-no-prototype-builtins-error-how-to
+e
+https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty */
+
+// console.log(getSchedule('Monday'));
+// console.log(getSchedule('Tuesday'));
 
 module.exports = getSchedule;
-
-// DICAS:
-// 3 ifs
-// if (scheduleTarget === undefined || (schedule condição  && schedule condição ))
-
-// caso os parâmetros não seja um animal e dia, retorna um objeto com os horários do dia e os animais em exibição
-// getSchedule('qualquercoisa')
