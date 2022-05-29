@@ -10,7 +10,7 @@ describe('Testes da função HandlerElephants', () => {
   it('Testando o argumento count, deve retornar 4', () => {
     expect(handlerElephants('count')).toBe(4);
   });
-  it('Testando o argumento names, deve retornar um array de nomes dos resisdentes', () => {
+  it('Testando o argumento names, deve retornar um array de nomes dos residentes', () => {
     expect(handlerElephants('names')).toEqual(['Ilana', 'Orval', 'Bea', 'Jefferson']);
   });
   it('Testando o argumento averageAge, deve retornar um número próximo a 10.5', () => {
@@ -19,7 +19,12 @@ describe('Testes da função HandlerElephants', () => {
   it('Testando se o parâmetro for null, retorna null', () => {
     expect(handlerElephants('Age')).toBeFalsy();
   });
-  it('Testando se o parâmetro estiver no objeto, retorna um array de nomes do meu parâmetro', () => {
-    expect(handlerElephants('elephants')).toEqual(['Ilana', 'Orval', 'Bea', 'Jefferson']);
+  it('Testando se o parâmetro for "residents", retorna um array com os nomes de todos os residentes', () => {
+    expect(handlerElephants('residents')).toEqual([
+      { name: 'Ilana', sex: 'female', age: 11 },
+      { name: 'Orval', sex: 'male', age: 15 },
+      { name: 'Bea', sex: 'female', age: 12 },
+      { name: 'Jefferson', sex: 'male', age: 4 },
+    ]);
   });
 });
