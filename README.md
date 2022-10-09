@@ -15,6 +15,23 @@ Prazo de entrega de 04 dias.
 </details>
 
 <details>
+  <summary><strong>:memo: Implementações </strong></summary><br />
+
+* função getSpeciesByIds
+* função getAnimalsOlderThan
+* função getEmployeeByName
+* função getRelatedEmployees
+* função countAnimals
+* 100% de cobertura na função handlerElephants
+* função calculateEntry
+* função getSchedule
+* função getOldestFromFirstSpecies
+* 100% de cobertura na função getOpeningHours
+* ~~função getEmployeesCoverage e função getAnimalMap~~ *(não realizadas)*
+
+</details>
+
+<details>
   <summary><strong>:memo: Instruções para rodar essa aplicação</strong></summary><br />
 
 Crie um fork desse projeto e para isso siga esse [tutorial de como realizar um fork](https://guides.github.com/activities/forking/).
